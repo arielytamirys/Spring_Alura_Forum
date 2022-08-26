@@ -1,9 +1,8 @@
 package controllers;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
-
 import br.com.alura.forum.modelo.Topico;
 
 public class TopicoDto {
@@ -11,13 +10,14 @@ public class TopicoDto {
     private long id;
     private String titulo;
     private String mensagem;
-    private LocalDate dataCriacao;
+    private LocalDateTime dataCriacao;
 
     public TopicoDto(Topico topico) {
 
         this.id = topico.getId();
         this.titulo = topico.getTitulo();
         this.mensagem = topico.getMensagem();
+        this.dataCriacao = topico.getDataCriacao();
 
     }
 
@@ -33,7 +33,7 @@ public class TopicoDto {
         return mensagem;
     }
 
-    public LocalDate getDataCriacao() {
+    public LocalDateTime getDataCriacao() {
         return dataCriacao;
     }
 
