@@ -1,11 +1,16 @@
 package br.com.alura.forum.controllers.forms;
 
+import br.com.alura.forum.modelo.Curso;
+import br.com.alura.forum.modelo.Topico;
+import br.com.alura.forum.repository.CursoRepository;
+
+
 public class TopicoForm {
 
 	
 	private String titulo;
 	private String mensagem;
-	private String nomeCruso;
+	private String nomeCurso;
 	
 	
 	public String getTitulo() {
@@ -21,11 +26,13 @@ public class TopicoForm {
 		this.mensagem = mensagem;
 	}
 	public String getNomeCruso() {
-		return nomeCruso;
+		return nomeCurso;
 	}
-	public void setNomeCruso(String nomeCruso) {
-		this.nomeCruso = nomeCruso;
+	public void setNomeCurso(String nomeCurso) {
+		this.nomeCurso = nomeCurso;
 	}
-	
-	
+	public Topico converter(CursoRepository cursoRepository) {
+		Curso curso = cursoRepository.findByNome(nomeCurso);
+		return new Topico(titulo, mensagem, curso);
+	}
 }
