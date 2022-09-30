@@ -1,5 +1,6 @@
 package br.com.alura.forum.controllers;
 
+import java.net.URI;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +33,7 @@ public class TopicosController {
 		if (nomeCurso == null) {
 			List<Topico> topicos = topicoRepository.findAll();
 			return TopicoDto.converter(topicos);
-		} else {ts
+		} else {
 			List<Topico> topicos = List.of( topicoRepository.findByNome(nomeCurso));
 			return TopicoDto.converter(topicos);
 
