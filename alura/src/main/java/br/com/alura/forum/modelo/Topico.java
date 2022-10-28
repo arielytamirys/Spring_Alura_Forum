@@ -19,6 +19,7 @@ public class Topico {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	private String nome;
 	private String titulo;
 	private String mensagem;
 	private LocalDateTime dataCriacao = LocalDateTime.now();
@@ -44,11 +45,11 @@ public class Topico {
 	}
 	
 
-	public Topico(String titulo, String mensagem, Curso curso) {
-		super();
+	public Topico(String titulo, String mensagem, Curso curso, String nome) {
 		this.titulo = titulo;
 		this.mensagem = mensagem;
 		this.curso = curso;
+		this.nome = nome;
 	}
 
 	@Override
@@ -75,7 +76,15 @@ public class Topico {
 	public void setId(Long id) {
 		this.id = id;
 	}
+    
+	public String getNome() {
+		return nome;
+	}
 
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+	
 	public String getTitulo() {
 		return titulo;
 	}

@@ -60,10 +60,13 @@ public class TopicosController {
 		return new TopicoDto(topico);
 	}
 	
-	@PutMapping("{id}")
+	//put serve para reescrever o metodo inteiro
+	@PutMapping("/{id}") 
 	public ResponseEntity<TopicoDto> atualizar(@PathVariable Long id, @RequestBody @Valid AtualizacaoTopicoForm form){
-		
-		form.atualizar(id, topicoRepository);
+		Topico topico = form.atualizar(id, topicoRepository);
+	
+		return ResponseEntity.ok(new TopicoDto(topico));
+	
 	}
 
 }
